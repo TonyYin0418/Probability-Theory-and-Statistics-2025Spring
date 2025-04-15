@@ -6,7 +6,7 @@
 
 二维随机变量 $(X, Y)$ 看作整体进行研究。
 
-**「联合分布函数」**：
+**「联合分布函数」**
 
 定义二元函数：
 $$
@@ -25,7 +25,7 @@ $$
 F(x_2, y_2)-F(x_1, y_2)-F(x_2, y_1)+F(x_1, y_1)=P\{x_1<X\leq x_2, y_1<Y\leq y_2\}\geq 0
 $$
 
-**「联合概率密度」**：
+**「联合概率密度」**
 $$
 F(x, y)=\int_{-\infty}^{y}\int_{-\infty}^{x}f(u, v)\text{d}u\text{d}v
 $$
@@ -44,14 +44,14 @@ $$
   $$
   \frac{\partial^2F(x, y)}{\partial x\partial y}=f(x, y)
   $$
-  可知
+  用处是，可推知：
   $$
   P\{x<X\leq x+\Delta x, y<Y\leq y+\Delta y\}\simeq f(x, y)\Delta x\Delta y
   $$
 
 ## 边缘分布
 
-**「边缘分布函数」**：
+**「边缘分布函数」**
 
 设 $(X, Y)$ 的分布函数为 $F(x, y)$，则 $X$ 的**边缘分布函数**为：
 
@@ -65,7 +65,7 @@ $$
 F_X(x)=F(x, \infty),\quad F_{Y}(y)=F(\infty,y)
 $$
 
-**「边缘概率密度」**：
+**「边缘概率密度」**
 $$
 f_X(x)=\int_{-\infty}^{\infty}f(x, y)\text{d}y
 $$
@@ -76,7 +76,7 @@ $$
 
 ### 二维正态分布
 
-TODO.
+不是考察重点。
 
 ## 条件分布
 
@@ -86,7 +86,7 @@ TODO.
 
 离散型很好理解，跟普通的条件概率很像。
 
-**「条件分布律」**：
+**「条件分布律」**
 
 对于二维离散型随机变量 $(X, Y)$，称：
 $$
@@ -104,13 +104,42 @@ P\{X\leq x\mid y<Y\leq y+\epsilon\} =\frac{P\{X\leq x, y<Y\leq y+\epsilon\}}{P\{
 $$
 当 $\epsilon \rightarrow 0$ 时，可推得连续性随机变量的相关定义式，对于二维连续型随机变量 $(X, Y)$，称：
 
-**「条件概率分布函数」**：
+**「条件概率分布函数」**
 $$
 F_{x\mid y}(x\mid y)=P\{X\leq x\mid Y=y\}=\int_{-\infty}^{y}\frac{f(x, y)}{f_{Y}(y)}\text{d}x
 $$
-**「条件概率密度」**：
+**「条件概率密度」**
 $$
 f_{x\mid y}(x\mid y)=\frac{f(x ,y)}{f_{Y}(y)}
+$$
+
+### 例题
+
+> P88：设随机变量 $(X, Y)$ 的概率密度为：
+> $$
+> f(x, y)=\left\{\begin{array}{rl}
+> 1, & |y|<x, 0<x<1 \\
+> 0, & \text{Otherwise}
+> \end{array}\right.
+> $$
+> 求条件概率密度 $f_{Y\mid X}(y\mid x)$，$f_{X\mid Y}(x\mid y)$.
+
+先求 $f_X$ 和 $f_Y$，
+$$
+f_X(x)=\int_{-\infty}^{\infty}f(x, y)\text{d}y=\int_{-x}^{x}1\text{d}y=2x\quad (0<x<1)
+$$
+
+$$
+f_Y(y)=\int_{-\infty}^{\infty}f(x, y)\text{d}x=\int_{|y|}^{1}1\text{d}x=1-|y|\quad (|y|<1)
+$$
+
+之后求条件概率密度，
+$$
+f_{Y\mid X}(y\mid x)=\frac{f(x, y)}{f_{X}(x)}=\frac{1}{2x},\quad (|y|<x, 0<x<1)
+$$
+
+$$
+f_{X\mid Y}(x\mid y)=\frac{f(x, y)}{f_{Y}(y)}=\frac{1}{1-|y|},\quad (|y|<x>1)
 $$
 
 ## 独立性
@@ -123,11 +152,11 @@ $$
 $$
 F(x, y)=F_X(x)F_Y(y)
 $$
-**「连续型随机变量」**：处处成立
+**「连续型随机变量」**下式处处成立
 $$
 f(x, y)=f_X(x)f_Y(y)
 $$
-**「离散型随机变量」**：处处成立
+**「离散型随机变量」**下式处处成立
 $$
 P\{X=x_i,Y=y_j\}=P\{X=x_i\}P\{Y=y_j\}
 $$
@@ -140,7 +169,7 @@ $$
 
 设 $(X, Y)$ 是二维连续性随机变量，则 $Z=X+Y$ 仍为连续性随机变量。
 
-**「分布函数」**：
+**「分布函数」**
 $$
 F_{Z}(z)=P\{Z\leq z\}=\iint\limits_{x+y\leq z}f(x, y)\text{d}x\text{d}y
 $$
@@ -153,7 +182,7 @@ F_{Z}(z)
 &=\int_{-\infty}^{z}[\int_{-\infty}^{\infty}f(u-y,y)\text{d}y]\text{d}u\\
 \end{aligned}
 $$
-**「概率密度」**：
+**「概率密度」**
 $$
 f_{X+Y}(z)=\int_{-\infty}^{\infty}f(z-y,y)\text{d}y
 $$
@@ -161,7 +190,7 @@ $$
 $$
 f_{X+Y}(z)=\int_{-\infty}^{\infty}f(x,z-x)\text{d}x
 $$
-**「卷积公式」**：
+**「卷积公式」**
 
 若 $X$ 和 $Y$ 独立，则 $f(x, y)=f_{X}(x)\cdot f_{Y}(y)$，代入得到：
 $$
@@ -183,13 +212,20 @@ $$
 f_{XY}(z)=\int_{-\infty}^{\infty}\frac{1}{\mid x \mid} f(x,\frac{z}{x})\text{d}x
 $$
 
-若 $X$ 和 $Y$ 独立，也可以用上述类似的方式进行拆开计算。
+若 $X$ 和 $Y$ 独立，也可以用上述类似的方式进行拆为两个函数的乘积，把 $f(x, y)=f_X(x)\cdot f_Y(y)$ 代入，
+$$
+f_{Y/X}(z)=\int_{-\infty}^{\infty}\mid x \mid f_X(x)\cdot f_Y(xz)\text{d}x
+$$
+
+$$
+f_{XY}(z)=\int_{-\infty}^{\infty}\frac{1}{\mid x \mid} f_X(x)\cdot f_Y(\frac{z}{x})\text{d}x
+$$
 
 ### Min / Max 分布
 
-**「二元情形」**：
+**「二元情形」**
 
-先考虑二元情形 $M=\max\{X, Y\}$ 及 $N=\min\{X, Y\}$ 的分布函数，其中 $X, Y$ 独立。
+先考虑二元情形 $M=\max\{X, Y\}$ 及 $N=\min\{X, Y\}$ 的分布函数，**其中 $X, Y$ 独立**。
 
 由于 $M$ 是最大值，$M\leq z$ 等价于 $X$ 和 $Y$ 都 $\leq z$，固有：
 $$
@@ -199,7 +235,7 @@ $$
 $$
 F_{\min}(z)=1-P\{X>z,Y>z\}=1-[1-F_{X}(z)][1-F_{Y}(z)]
 $$
-**「多元情形」**：
+**「多元情形」**
 
 下面推广到 $n$ 个独立随机变量的情况。
 
@@ -219,7 +255,7 @@ $$
 f(x,y)=\frac{1}{2\pi}e^{-\frac{x^2+y^2}{2}}
 $$
 
-**「分布函数」**：
+**「分布函数」**
 $$
 F_Z(z)=P\{x^2+y^2\leq z^2\}=\iint\limits_{D}f(x, y)\text{d}x\text{dy}
 $$
@@ -244,7 +280,7 @@ F_Z(z)=\left\{
 \end{array}
 \right.
 $$
-**「概率密度」**：求导
+**「概率密度」**对分布函数求导，得：
 $$
 f_Z(z)=\left\{
 \begin{array}{ll}
@@ -253,3 +289,40 @@ ze^{-\frac{z^2}{2}}, &z>0\\
 \end{array}
 \right.
 $$
+
+### 例题
+
+> P89：设 $X$ 和 $Y$ 是两个**相互独立**的随机变量，其概率密度分别为：
+> $$
+> f_X(x)=1,\quad0\leq x\leq1
+> $$
+> $$
+> f_Y(y)=e^{-y},\quad y>0
+> $$
+>
+> 求随机变量 $Z=X+Y$ 的概率密度。
+
+首先要画图，并且考虑 $Z$ 的取值，需满足：
+$$
+\left\{\begin{array}{l}
+y\leq z\leq y+1,\\
+y>0
+\end{array}\right.
+$$
+图形为：
+
+<img src="./chap3-img1.png" alt="image-20250415143825783" style="zoom:50%;" />
+
+利用公式积分：
+$$
+f_Z(z)=\int_{-\infty}^{\infty}f_X(z-y)f_Y(y)\text{d}y
+$$
+
+$$
+f_Z(z)=\left\{\begin{array}{ll}
+\displaystyle \int_{0}^{z}1\cdot e^{-y}\text{d}y=1-e^{-z}, &0<z<1\\
+\displaystyle \int_{z-1}^{z}1\cdot e^{-y}\text{d}y=(e-1)e^{-z}, &z\geq 1\\
+0,&\text{Otherwise}
+\end{array}\right.
+$$
+
